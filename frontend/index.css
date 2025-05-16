@@ -1,0 +1,140 @@
+body {
+  font-family: 'Inter', sans-serif; /* Define a fonte principal do corpo do texto para a fonte 'Inter', com um fallback genérico sans-serif. */
+  background-color: #202124; /* Define a cor de fundo do corpo da página para um tom de preto escuro. */
+}
+
+.message {
+  border-radius: 1.25rem; /* Arredonda as bordas das mensagens. */
+  padding: 0.75rem 1rem; /* Define o espaçamento interno (superior/inferior e esquerda/direita) das mensagens. */
+  margin-bottom: 0.5rem; /* Adiciona uma margem abaixo de cada mensagem para separá-las. */
+  max-width: 85%; /* Define a largura máxima das mensagens para não ocuparem toda a largura. */
+  white-space: pre-wrap; /* Permite que o texto dentro da mensagem quebre para a próxima linha e preserva espaços em branco. */
+}
+
+.sent {
+  background-color: #4a5568; /* Define a cor de fundo das mensagens enviadas pelo usuário. */
+  color: white; /* Define a cor do texto das mensagens enviadas. */
+  margin-left: auto; /* Empurra a mensagem para a direita, alinhando-a à direita. */
+  text-align: right; /* Alinha o texto dentro da mensagem à direita. */
+}
+
+.received {
+  background-color: #2d3748; /* Define a cor de fundo das mensagens recebidas. */
+  color: white; /* Define a cor do texto das mensagens recebidas. */
+  margin-right: auto; /* Empurra a mensagem para a esquerda, alinhando-a à esquerda. */
+  text-align: left; /* Alinha o texto dentro da mensagem à esquerda. */
+}
+
+.messages-container {
+  flex: 1; /* Faz com que este elemento cresça para ocupar todo o espaço vertical disponível no seu container flex pai. */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando o conteúdo excede a altura do container. */
+  padding: 1rem; /* Define o espaçamento interno do container de mensagens. */
+  z-index: 1; /* Garante que as mensagens estejam em uma camada inferior à caixa de texto. */
+}
+
+.dark-mode-toggle {
+  position: absolute; /* Posiciona o botão de forma absoluta em relação ao seu ancestral posicionado mais próximo. */
+  top: 1rem; /* Define a distância do topo. */
+  right: 1rem; /* Define a distância da direita. */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável. */
+  padding: 0.5rem 1rem; /* Define o espaçamento interno do botão. */
+  background-color: #718096; /* Define a cor de fundo do botão. */
+  color: white; /* Define a cor do texto do botão. */
+  border-radius: 9999px; /* Arredonda completamente as bordas para criar um formato de pílula. */
+  font-weight: 600; /* Define a espessura da fonte como semibold. */
+}
+
+.typing {
+  font-style: italic; /* Deixa o texto em itálico. */
+  color: #a0aec0; /* Define a cor do texto como um cinza mais claro. */
+}
+
+#welcome-title {
+  background-image: linear-gradient(to right, #6699FF, #CC66FF, #FF6699); /* Cria um gradiente linear de cores da esquerda para a direita como fundo. */
+  -webkit-background-clip: text; /* Faz com que o fundo (o gradiente) seja cortado na forma do texto (para navegadores Chrome e Safari). */
+  background-clip: text; /* Faz com que o fundo seja cortado na forma do texto (para outros navegadores modernos). */
+  color: transparent; /* Torna a cor do texto transparente para que o gradiente do fundo seja visível através das letras. */
+  font-weight: bold; /* Deixa o texto em negrito. */
+}
+
+#main-footer {
+  display: flex; /* Usa o modelo de layout Flexbox para organizar os elementos filhos (input e botão) em uma linha. */
+  padding: 10px 20px; /* Define o espaçamento interno do rodapé. */
+  border-top: none; /* Remove a borda superior. */
+  align-items: center; /* Alinha verticalmente os itens filhos ao centro. */
+  position: fixed; /* Fixa o rodapé na tela, mesmo durante a rolagem. */
+  bottom: 26px; /* Define a distância da parte inferior da tela. */
+  left: 0; /* Alinha com a borda esquerda da tela. */
+  right: 0; /* Alinha com a borda direita da tela, ocupando toda a largura. */
+  background-color: #202124; /* Define a cor de fundo do rodapé. */
+  z-index: 10; /* Garante que o rodapé esteja em uma camada superior à disclaimer. */
+}
+
+#main-footer textarea#text-input {
+  padding: 10px 15px; /* Define o espaçamento interno da caixa de texto. */
+  border-radius: 25px; /* Arredonda as bordas da caixa de texto. */
+  border: 1px solid #555; /* Adiciona uma borda sutil à caixa de texto. */
+  background-color: #333; /* Define a cor de fundo da caixa de texto. */
+  color: #e0e0e0; /* Define a cor do texto dentro da caixa de texto. */
+  margin-right: 10px; /* Adiciona uma margem à direita para separar da seta. */
+  outline: none; /* Remove a borda que aparece ao clicar na caixa de texto. */
+  resize: vertical; /* Permite que o usuário redimensione a altura da caixa de texto verticalmente. */
+  min-height: 40px; /* Define uma altura mínima para a caixa de texto. */
+  max-height: 150px; /* Define uma altura máxima para a caixa de texto. */
+  overflow-y: auto; /* Adiciona uma barra de rolagem interna se o texto exceder a altura máxima. */
+}
+
+#main-footer button#send-button {
+  background-color: #555; /* Define a cor de fundo da seta. */
+  color: #e0e0e0; /* Define a cor da seta. */
+  border: none; /* Remove a borda do botão. */
+  border-radius: 50%; /* Arredonda as bordas para criar um formato circular. */
+  width: 40px; /* Define a largura do botão. */
+  height: 40px; /* Define a altura do botão. */
+  display: flex; /* Usa Flexbox para centralizar o conteúdo interno (a seta). */
+  justify-content: center; /* Centraliza horizontalmente o conteúdo. */
+  align-items: center; /* Centraliza verticalmente o conteúdo. */
+  font-size: 1.2em; /* Define o tamanho da fonte do ícone da seta. */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável. */
+  outline: none; /* Remove a borda que aparece ao clicar no botão. */
+}
+
+#main-footer button#send-button:hover {
+  background-color: #777; /* Muda a cor de fundo ao passar o mouse. */
+}
+
+#disclaimer {
+  font-size: 0.8em; /* Define o tamanho da fonte da mensagem de aviso. */
+  color: #666; /* Define a cor do texto da mensagem de aviso. */
+  text-align: center; /* Centraliza o texto da mensagem de aviso. */
+  padding: 10px 0; /* Define o espaçamento interno vertical da mensagem de aviso. */
+  position: fixed; /* Fixa a mensagem de aviso na tela. */
+  bottom: 0; /* Alinha com a parte inferior da tela. */
+  left: 0; /* Alinha com a borda esquerda da tela. */
+  right: 0; /* Alinha com a borda direita da tela, ocupando toda a largura. */
+  background-color: #202124; /* Define a cor de fundo da mensagem de aviso. */
+  z-index: 10; /* Garante que a mensagem de aviso esteja acima de outros elementos. */
+}
+
+/* Estilização da barra de rolagem para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Define a largura da barra de rolagem. */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Deixa o fundo da "trilha" da barra de rolagem transparente. */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333; /* Define a cor do "polegar" (a parte que você arrasta) da barra de rolagem. */
+  border-radius: 4px; /* Arredonda as bordas do "polegar". */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Muda a cor do "polegar" ao passar o mouse. */
+}
+
+/* Estilização da barra de rolagem para Firefox (mais limitado) */
+/* Você pode ajustar a cor primária para algo mais escuro */
+/* scrollbar-color: #333 transparent; */
+/* scrollbar-width: thin; */
